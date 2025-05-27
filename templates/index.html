@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<a href="{{ url_for('nuevo') }}" class="btn btn-primary mb-3">➕ Nuevo Estudiante</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th><th>Apellido</th><th>Nombre</th><th>Edad</th><th>Carné</th><th>Correo</th><th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for est in estudiantes %}
+        <tr>
+            <td>{{ est[0] }}</td>
+            <td>{{ est[1] }}</td>
+            <td>{{ est[2] }}</td>
+            <td>{{ est[3] }}</td>
+            <td>{{ est[4] }}</td>
+            <td>{{ est[5] }}</td>
+            <td>
+                <a href="{{ url_for('editar', id=est[0]) }}" class="btn btn-warning btn-sm">✏️ Editar</a>
+                <a href="{{ url_for('eliminar', id=est[0]) }}" class="btn btn-danger btn-sm">🗑️ Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

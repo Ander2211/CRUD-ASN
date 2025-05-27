@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post">
+    <div class="mb-3">
+        <label>Apellido</label>
+        <input type="text" name="apellido" class="form-control" value="{{ estudiante[1] if estudiante else '' }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Nombre</label>
+        <input type="text" name="nombre" class="form-control" value="{{ estudiante[2] if estudiante else '' }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Edad</label>
+        <input type="number" name="edad" class="form-control" value="{{ estudiante[3] if estudiante else '' }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Número de Carné</label>
+        <input type="text" name="numero_carne" class="form-control" value="{{ estudiante[4] if estudiante else '' }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Correo</label>
+        <input type="email" name="correo" class="form-control" value="{{ estudiante[5] if estudiante else '' }}" required>
+    </div>
+    <button type="submit" class="btn btn-success">💾 Guardar</button>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">↩️ Volver</a>
+</form>
+{% endblock %}
